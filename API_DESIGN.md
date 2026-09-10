@@ -126,8 +126,7 @@ Request Body:
 “available_copies”: 5
 }
 
-1. 
-Endpoint: POST /api/members (create a new member)
+1. Endpoint: POST /api/members (create a new member)
 
 Request Body 
 {
@@ -140,8 +139,7 @@ Request Body
 “status”: “active”
 }
 
-2. 
-Endpoint: POST /api/loans (borrow a book)
+2. Endpoint: POST /api/loans (borrow a book)
 
 Request Body 
 {
@@ -152,8 +150,7 @@ Request Body
 “status”: “borrowed”
 }
 
-3. 
-Endpoint: PATCH /api/books/:id (update book availability)
+3. Endpoint: PATCH /api/books/:id (update book availability)
 
 Request Body 
 {
@@ -209,8 +206,7 @@ Error Response (404 Not Found):
    }
 }
 
-2. 
-Endpoint: POST /api/loans
+2. Endpoint: POST /api/loans
 
 Success Response (201 Created):
 {
@@ -266,8 +262,7 @@ Endpoint: POST /api/books
 - Conflict: 409 (Book with this isbn already exists)
 - Server Error: 500 (Database connection failed)
 
-1. 
-Endpoint: GET /api/books/:id
+1. Endpoint: GET /api/books/:id
 
 - Success: 200 OK
 - Created: N/A (use 200 Success OK for this)
@@ -276,8 +271,7 @@ Endpoint: GET /api/books/:id
 - Conflict: N/A (was only using GET)
 - Server Error: 500 (Database connection failed)
 
-2. 
-Endpoint: POST /api/members
+2. Endpoint: POST /api/members
 
 - Success: N/A (use 201 Created for this)
 - Created: 201 (Member created successfully)
@@ -286,8 +280,7 @@ Endpoint: POST /api/members
 - Conflict: 409 (Member with this email or library_card already exists)
 - Server Error: 500 (Database connection failed)
 
-3. 
-Endpoint: POST /api/loans (borrowing a book)
+3. Endpoint: POST /api/loans (borrowing a book)
 
 - Success: N/A (use 201 Created for this)
 - Created: 201 (Loan created successfully)
@@ -308,34 +301,29 @@ Endpoint: DELETE /api/books/7
 
 ## 7. Special Scenarios
 
-1. 
-Scenario: Borrowing a book with 0 available copies
-Status Code: 409
-Error Code: “BOOK_NOT_AVAILABLE”
-Error Message: “This book has no available copies for borrowing”
+1. Scenario: Borrowing a book with 0 available copies
+**Status Code:** 409
+**Error Code:** “BOOK_NOT_AVAILABLE”
+**Error Message:** “This book has no available copies for borrowing”
 
-2. 
-Scenario: Returning an existing loan
-Status Code: 409
-Error Code: “LOAN_ALREADY_RETURNED”
-Error Message: “This loan has already been returned”
+2. Scenario: Returning an existing loan
+**Status Code:** 409
+**Error Code:** “LOAN_ALREADY_RETURNED”
+**Error Message:** “This loan has already been returned”
 
-3. 
-Scenario: Deleting a book with active loans
-Status Code: 409
-Error Code: “BOOK_STILL_ACTIVE”
-Error Message: “This book is currently being borrowed and hasn’t returned yet”
+3. Scenario: Deleting a book with active loans
+**Status Code:** 409
+**Error Code:** “BOOK_STILL_ACTIVE”
+**Error Message:** “This book is currently being borrowed and hasn’t returned yet”
 
-4. 
-Scenario: Creating a member with duplicate email
-Status Code: 409
-Error Code: “MEMBER_EMAIL_ALREADY_EXISTS”
-Error Message: “This email has already been used”
+4. Scenario: Creating a member with duplicate email
+**Status Code:** 409
+**Error Code:** “MEMBER_EMAIL_ALREADY_EXISTS”
+**Error Message:** “This email has already been used”
 
 **Advanced Features: Query Parameters for Filtering & Sorting**
 
-1. 
-GET /api/books (search, filter by category, sort, paginate)
+1. GET /api/books (search, filter by category, sort, paginate)
 
 - ?search=Harry  Search books with “Harry” in the title or author
 - ?sort=available_copies  Sort by available copies
@@ -346,8 +334,7 @@ FULL URL:
 GET /api/books?search=Harry&sort=available_copies&order=asc&page=1&limit=7
 
 
-2. 
-GET /api/loans (filter by status: active/returned/overdue, filter by member)
+2. GET /api/loans (filter by status: active/returned/overdue, filter by member)
 
 - ?status=overdue&member_id=10  Filter by overdue loans for member_id 10
 
@@ -363,6 +350,6 @@ Migration Strategy: Support both/v1/books and /v2/ books for 3 months
 Deprecation Timeline: Announce v1 deprecation on 2026-09-11, remove on 2026-12-11.
 
 
-**Flowchart and ERD**
+## 9.Flowchart and ERD
 ![Borrowing Process Flowchart](borrowing-flowchart.jpeg)
 ![Entity Relationship Diagram](lms-erd.jpeg)
