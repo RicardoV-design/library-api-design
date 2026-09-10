@@ -14,15 +14,15 @@
 
 - Resource: reviews
 
-GET /api/reviews → Get all reviews
-GET /api/reviews/:id → Get 1 review by ID
+GET /api/reviews → Get all reviews  
+GET /api/reviews/:id → Get 1 review by ID  
 DELETE /api/reviews/:id → Delete review (Only accessible by author or admin)
 
 **Nested Resources and Relationships**
 
 Relationship: books has many reviews
 
-GET /api/books/:id/reviews → Get all reviews for a specific book
+GET /api/books/:id/reviews → Get all reviews for a specific book  
 POST /api/books/:id/reviews → Create a new review for a specific book
 
 Relationship: members has many reviews
