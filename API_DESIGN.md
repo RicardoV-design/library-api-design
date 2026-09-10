@@ -301,24 +301,24 @@ Endpoint: DELETE /api/books/7
 
 ## 7. Special Scenarios
 
-1. Scenario: Borrowing a book with 0 available copies
-**Status Code:** 409
-**Error Code:** “BOOK_NOT_AVAILABLE”
+1. Scenario: Borrowing a book with 0 available copies  
+**Status Code:** 409  
+**Error Code:** “BOOK_NOT_AVAILABLE”  
 **Error Message:** “This book has no available copies for borrowing”
 
-2. Scenario: Returning an existing loan
-**Status Code:** 409
-**Error Code:** “LOAN_ALREADY_RETURNED”
+2. Scenario: Returning an existing loan  
+**Status Code:** 409  
+**Error Code:** “LOAN_ALREADY_RETURNED”  
 **Error Message:** “This loan has already been returned”
 
-3. Scenario: Deleting a book with active loans
-**Status Code:** 409
-**Error Code:** “BOOK_STILL_ACTIVE”
+3. Scenario: Deleting a book with active loans  
+**Status Code:** 409  
+**Error Code:** “BOOK_STILL_ACTIVE”  
 **Error Message:** “This book is currently being borrowed and hasn’t returned yet”
 
-4. Scenario: Creating a member with duplicate email
-**Status Code:** 409
-**Error Code:** “MEMBER_EMAIL_ALREADY_EXISTS”
+4. Scenario: Creating a member with duplicate email  
+**Status Code:** 409  
+**Error Code:** “MEMBER_EMAIL_ALREADY_EXISTS”  
 **Error Message:** “This email has already been used”
 
 **Advanced Features: Query Parameters for Filtering & Sorting**
